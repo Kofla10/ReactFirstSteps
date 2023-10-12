@@ -5,6 +5,8 @@ import Jsx from './components/Jsx';
 import List from './components/list';
 import Form from './components/form';
 import FormmHook from './components/formHook';
+import Example1 from './components/exampleUno';
+import ExampleUno from './components/exampleUno';
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
       {/* <List/> */}
       <div className='container mt-5'>
         {/* <Form/> */}
-        <FormmHook/>
+        {/* <FormmHook/> */}
+        <ExampleUno/>
       </div>
     </div>
   );
