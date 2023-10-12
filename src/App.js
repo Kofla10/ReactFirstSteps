@@ -4,6 +4,7 @@ import './components/Jsx'
 import Jsx from './components/Jsx';
 import List from './components/list';
 import Form from './components/form';
+import FormmHook from './components/formHook';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <Jsx/> */}
       {/* <List/> */}
       <div className='container mt-5'>
-        <Form/>
+        {/* <Form/> */}
+        <FormmHook/>
       </div>
     </div>
   );
