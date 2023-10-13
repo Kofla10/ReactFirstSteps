@@ -1,10 +1,17 @@
 import React, {useState, Fragment} from "react";
+import { useForm } from "react-hook-form";
 
-const {
-   
-}
 
-const ExampleUno = () =>{
+const ExampleOne = () =>{
+
+    // to validate the data of form 
+    const {
+        register, 
+        handleSubmit
+     } = useForm();
+
+
+    //to take input of form
     const [data, setData] = useState({
         names      : '',
         lastName   : '',
@@ -13,7 +20,23 @@ const ExampleUno = () =>{
         job        : ''
 
     });
-    const sendSubmit = ()=>{
+    
+
+    //Capture the form data, 
+    const handleInputChange = (event) =>{
+        setData({
+            ...data,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    //to printin console the data get of the form
+    const sendSubmit = (newData)=>{
+        console.log(newData)
+        setData({
+            ...data,
+            newData
+        })
 
     }
 
@@ -28,6 +51,8 @@ const ExampleUno = () =>{
                         type        = "text"
                         placeholder = "Name"
                         name        = "names"
+                        onChange    = {handleInputChange}
+                        {...register("Name",{required:true, minLength:3})}
                     />
                 </div>
                 <div>
@@ -36,6 +61,8 @@ const ExampleUno = () =>{
                         type        = "text"
                         placeholder = "Last Name"
                         name        = 'lastName'
+                        onChange    = {handleInputChange}
+                        {...register("Last Name",{required:true, minLength:3})}
                     />                    
                 </div>
                 <div>
@@ -44,6 +71,8 @@ const ExampleUno = () =>{
                         type        = "number"
                         placeholder = "Age"
                         name        = 'age'
+                        onChange    = {handleInputChange}
+                        {...register("Age",{required:true})}
                     />                    
                 </div>
                 <div>
@@ -52,6 +81,8 @@ const ExampleUno = () =>{
                         type        = "text"
                         placeholder = "Nationality"
                         name        = 'nationality'
+                        onChange    = {handleInputChange}
+                        {...register("Nationality",{required:true, minLength:4})}
                     />                    
                 </div>
                 <div>
@@ -60,6 +91,8 @@ const ExampleUno = () =>{
                         type        = "text"
                         placeholder = "Job"
                         name        = 'job'
+                        onChange    = {handleInputChange}
+                        {...register("Job",{required:true})}
                     />                    
                 </div>
                 <div>
@@ -70,4 +103,4 @@ const ExampleUno = () =>{
     );
 }
 
-export default ExampleUno;
+export default ExampleOne;
